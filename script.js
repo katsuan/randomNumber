@@ -3,12 +3,23 @@ function zeroPadding(number, length) {
     return number.toString().padStart(length, "0");
 }
 
-function createRandomNumber() {
-    var min = 1;
-    var max = 100;
+function getParameters() {
+    // パラメーターを定義する
+    const params = new URL(window.location.href).searchParams;
+    const minString = params.get("min") || "1";
+    const maxString = params.get("max") || "100";
+    return {
+        min: parseInt(minString, 10),
+        max: parseInt(maxString, 10),
+    };
+}
 
-    var a = Math.floor(Math.random() * (max + 1 - min)) + min;
-    console.log(a);
+function createRandomNumber() {
+    const parameters = getParameters();
+    const min = parameters.min;
+    const max = parameters.max;
+
+    const a = Math.floor(Math.random() * (max + 1 - min)) + min;
     return a;
 }
 
