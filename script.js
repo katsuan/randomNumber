@@ -22,6 +22,7 @@ function createRandomNumber() {
     const a = Math.floor(Math.random() * (max + 1 - min)) + min;
     return a;
 }
+
 function displayNumber() {
     const element = document.getElementById("number");
     element.textContent = zeroPadding(createRandomNumber(), 2)
