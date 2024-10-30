@@ -18,6 +18,7 @@ html {
 }
 
 body {
+    transition: background-color 0.5s;
     align-items: center;
     color: var(--color-base);
     display: flex;
@@ -30,4 +31,5 @@ body {
 
 button{
     padding: 10px;
+    cursor: pointer;
 }
