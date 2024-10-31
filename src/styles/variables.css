@@ -1,0 +1,34 @@
+/* 全体のスタイル */
+:root {
+    /* 色 */
+    --color-base: #4d4d4d;
+    --color-primary: #F9BE00;
+    --color-second: #DF7861;
+    --color-accent: #e9eaec;
+    --color-bg: #f4f4f4;
+    /* 余白 */
+    --spacing-small: 4px;
+    --spacing-medium: 8px;
+    --spacing-large: 16px;
+    /* フォントサイズ */
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    --font-size-large: 20px;
+    /* ボーダー */
+    --border-thin: 1px;
+    --border-medium: 2px;
+    --border-thick: 4px;
+    --border-radius: 8px;
+    /* シャドウ */
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-small: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-large: 6px 6px 15px rgba(0, 0, 0, 0.3);
+    /* レスポンシブデザイン用のブレークポイント */
+    --breakpoint-small: 480px;
+    --breakpoint-medium: 768px;
+    --breakpoint-large: 1024px;
+    /* 最大 */
+    --max-width: 1200px;
+    --max-height: 800px
+}

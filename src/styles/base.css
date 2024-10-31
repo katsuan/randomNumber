@@ -1,0 +1,70 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--color-base);
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--spacing-large);
+}
+
+h1 {
+    color: var(--color-base);
+    margin-bottom: var(--spacing-large);
+    font-size: 1.8em;
+}
+
+p {
+    font-size: var(--font-size-medium);
+    margin: 0 auto;
+    color: var(--color-base);
+}
+
+form {
+    background: white;
+    padding: var(--spacing-large);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: var(--spacing-medium);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: var(--spacing-medium);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: var(--spacing-medium);
+}
+
+input:hover,
+button:hover {
+    opacity: 0.7;
+}
+
+/* 背景色設定 */
+.bg-base {
+    background-color: var(--color-base);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-second {
+    background-color: var(--color-second);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}

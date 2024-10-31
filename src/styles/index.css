@@ -1,38 +1,16 @@
-/* 全体のスタイル */
-:root {
-    --color-base: #4d4d4d;
-    --color-primary: #F9BE00;
-    --color-second: #DF7861;
-    --color-accent: #e9eaec;
-}
-
-p {
-    font-size: 10px;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: var(--color-base);
-}
-
 html {
     font-size: 32vmin;
 }
 
 body {
-    transition: background-color 0.5s;
-    align-items: center;
-    color: var(--color-base);
-    display: flex;
-    font-family: 'Helvetica Neue', sans-serif;
-    justify-content: center;
-    margin: 0px auto;
     overflow: hidden;
     text-align: center;
+    height: 100vh;
 }
 
 #number {
     font-weight: bold;
     color: var(--color-base);
-    /* 数字の色 */
     padding: 20px;
     text-shadow:
         -3px -3px 3px white,
