@@ -12,31 +12,35 @@
 <body>
     <h1>設定</h1>
     <form id="settingsForm">
-        <label for="min">最小値:</label>
-        <input type="number" id="min" name="min" value="1" required>
-        <input type="color" id="minColor" name="minColor" value="#ffffff" oninput="updateColorPreview()">
-        <br>
+        <div class="input-group" id="colorPreview">
+            <div class="input-item">
+                <label for="min">最小値:</label>
+                <input type="number" id="min" name="min" value="1" required>
+                <div class="color-input">
+                    <input type="color" id="minColor" name="minColor" value="#ffffff" oninput="updateColorPreview()">
+                    <span class="color-label">最小値の色</span>
+                </div>
+            </div>
+            <div class="input-item">
+                <label for="max">最大値:</label>
+                <input type="number" id="max" name="max" value="100" required>
+                <div class="color-input">
+                    <input type="color" id="maxColor" name="maxColor" value="#ffffff" oninput="updateColorPreview()">
+                    <span class="color-label">最大値の色</span>
+                </div>
+            </div>
+        </div>
 
-        <label for="max">最大値:</label>
-        <input type="number" id="max" name="max" value="100" required>
-        <input type="color" id="maxColor" name="maxColor" value="#ffffff" oninput="updateColorPreview()">
-        <br>
-
-        <div id="colorPreview">色のプレビュー</div>
-
-        <label for="showMessage">最大・最小メッセージ:</label>
+        <label for="showMessage">メッセージ:</label>
         <select id="showMessage" name="showMessage">
             <option value="false">非表示</option>
             <option value="true">表示</option>
         </select>
         <br>
 
-        <button type="button" onclick="generateLink()">リンクを生成</button>
+        <button type="button" onclick="generateLink()">設定を反映</button>
         <button type="button" onclick="resetDefaults()">リセット</button>
     </form>
-
-    <h2>生成されたリンク:</h2>
-    <a id="generatedLink" href="#" target="_blank"></a>
 
     <script src="../scripts/setting.js"></script>
 </body>
