@@ -15,6 +15,16 @@ h1 {
     font-size: 1.8em;
 }
 
+h2 {
+    color: var(--color-base);
+    margin-bottom: var(--spacing-medium);
+    font-size: 1.5em;
+}
+
+label {
+    font-weight: bold;
+}
+
 p {
     font-size: var(--font-size-medium);
     margin: 0 auto;

@@ -12,10 +12,6 @@
     width: 48%;
 }
 
-.input-item label {
-    font-weight: bold;
-}
-
 .color-input {
     position: relative;
 }
@@ -23,7 +19,6 @@
 .color-input input[type="color"] {
     width: 100%;
     height: 50px;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
     background-color: transparent;
