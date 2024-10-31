@@ -39,14 +39,18 @@ body {
         3px -3px 3px white,
         -3px 3px 3px white,
         3px 3px 3px white;
-    /* 縁取りの色 */
 }
 
 #message {
     font-size: 0.1em;
+    text-shadow:
+        -3px -3px 3px white,
+        3px -3px 3px white,
+        -3px 3px 3px white,
+        3px 3px 3px white;
 }
 
-button{
+button {
     padding: 10px;
     cursor: pointer;
     font-size: 0.1em;
