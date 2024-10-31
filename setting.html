@@ -50,51 +50,34 @@
     <a id="generatedLink" href="#" target="_blank"></a>
 
     <script>
-        function generateLink() {
-            const min = document.getElementById("min").value;
-            const max = document.getElementById("max").value;
-            const minColor = document.getElementById("minColor").value.replace('#', ''); // #を省略
-            const maxColor = document.getElementById("maxColor").value.replace('#', ''); // #を省略
-            const showMessage = document.getElementById("showMessage").value;
+    function generateLink() {
+        const min = document.getElementById("min").value;
+        const max = document.getElementById("max").value;
+        const minColor = document.getElementById("minColor").value.replace('#', ''); // #を省略
+        const maxColor = document.getElementById("maxColor").value.replace('#', ''); // #を省略
+        const showMessage = document.getElementById("showMessage").value;
 
-            let link = "http://127.0.0.1:3000/random.html"; // 基本のリンク
+        // 現在のオリジンを取得（例: http://127.0.0.1:3000 または https://yourdomain.com）
+        const baseUrl = window.location.origin + "/random.html";
 
-            // 初期値でない場合のみパラメータを追加
-            const params = [];
-            if (min !== "1") params.push(`min=${min}`);
-            if (max !== "100") params.push(`max=${max}`);
-            if (minColor !== "ffffff" || maxColor !== "ffffff") {
-                params.push(`color=${minColor},${maxColor}`); // 両方のカラーを出力
-            }
-            if (showMessage !== "false") params.push(`showMessage=${showMessage}`);
+        // 初期値でない場合のみパラメータを追加
+        const params = [];
+        if (min !== "1") params.push(`min=${min}`);
+        if (max !== "100") params.push(`max=${max}`);
+        if (minColor !== "ffffff" || maxColor !== "ffffff") {
+            params.push(`color=${minColor},${maxColor}`); // 両方のカラーを出力
+        }
+        if (showMessage !== "false") params.push(`showMessage=${showMessage}`);
 
-            if (params.length > 0) {
-                link += "?" + params.join("&");
-            }
-
-            document.getElementById("generatedLink").href = link;
-            document.getElementById("generatedLink").textContent = link;
+        // パラメータが存在する場合はリンクに追加
+        let link = baseUrl;
+        if (params.length > 0) {
+            link += "?" + params.join("&");
         }
 
-        function resetDefaults() {
-            document.getElementById("min").value = 1;
-            document.getElementById("max").value = 100;
-            document.getElementById("minColor").value = "#ffffff"; // 初期値は白
-            document.getElementById("maxColor").value = "#ffffff"; // 初期値は白
-            document.getElementById("showMessage").value = "false";
-            document.getElementById("generatedLink").href = "#"; // リンクをクリア
-            document.getElementById("generatedLink").textContent = ""; // テキストもクリア
-            updateColorPreview(); // プレビューを更新
-        }
-
-        function updateColorPreview() {
-            const minColor = document.getElementById("minColor").value;
-            const maxColor = document.getElementById("maxColor").value;
-            const colorPreview = document.getElementById("colorPreview");
-
-            // グラデーションの更新
-            colorPreview.style.background = `linear-gradient(to right, ${minColor}, ${maxColor})`;
-        }
+        document.getElementById("generatedLink").href = link;
+        document.getElementById("generatedLink").textContent = link;
+    }
     </script>
 </body>
 
