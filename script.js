@@ -76,11 +76,14 @@ function showMessageOnScreen(number, min, max, showMessage) {
 
     if (number === min) {
         messageElement.textContent = `最小値 ${paddedMin} が出ました！`;
-        messageElement.style.display = "block"; // メッセージを表示
+        messageElement.style.display = "block";
     } else if (number === max) {
         messageElement.textContent = `最大値 ${paddedMax} が出ました！`;
-        messageElement.style.display = "block"; // メッセージを表示
-    } else {
-        messageElement.style.display = "none"; // その他の場合は非表示
+        messageElement.style.display = "block";
+    } else if (number === (max + min) / 2){
+        messageElement.textContent = `中央値が出ました！`;
+        messageElement.style.display = "block";
+    }else {
+        messageElement.style.display = "none";
     }
 }
