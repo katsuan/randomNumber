@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>設定ページ</title>
+    <style>
+        #colorPreview {
+            width: 100%;
+            /* プレビューの幅 */
+            height: 30px;
+            /* プレビューの高さ */
+            border: 1px solid #ccc;
+            /* 枠線 */
+            margin-top: 5px;
+            /* マージン */
+            background: linear-gradient(to right, #ffffff, #ffffff);
+            /* 初期のグラデーション (白〜白) */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>設定</h1>
+    <form id="settingsForm">
+        <label for="min">最小値:</label>
+        <input type="number" id="min" name="min" value="1" required>
+        <input type="color" id="minColor" name="minColor" value="#ffffff" oninput="updateColorPreview()">
+        <br>
+
+        <label for="max">最大値:</label>
+        <input type="number" id="max" name="max" value="100" required>
+        <input type="color" id="maxColor" name="maxColor" value="#ffffff" oninput="updateColorPreview()">
+        <br>
+
+        <div id="colorPreview">色のプレビュー</div>
+
+        <label for="showMessage">最大・最小メッセージ:</label>
+        <select id="showMessage" name="showMessage">
+            <option value="false">非表示</option>
+            <option value="true">表示</option>
+        </select>
+        <br>
+
+        <button type="button" onclick="generateLink()">リンクを生成</button>
+        <button type="button" onclick="resetDefaults()">リセット</button>
+    </form>
+
+    <h2>生成されたリンク:</h2>
+    <a id="generatedLink" href="#" target="_blank"></a>
+
+    <script>
+        function generateLink() {
+            const min = document.getElementById("min").value;
+            const max = document.getElementById("max").value;
+            const minColor = document.getElementById("minColor").value.replace('#', ''); // #を省略
+            const maxColor = document.getElementById("maxColor").value.replace('#', ''); // #を省略
+            const showMessage = document.getElementById("showMessage").value;
+
+            let link = "http://127.0.0.1:3000/random.html"; // 基本のリンク
+
+            // 初期値でない場合のみパラメータを追加
+            const params = [];
+            if (min !== "1") params.push(`min=${min}`);
+            if (max !== "100") params.push(`max=${max}`);
+            if (minColor !== "ffffff" || maxColor !== "ffffff") {
+                params.push(`color=${minColor},${maxColor}`); // 両方のカラーを出力
+            }
+            if (showMessage !== "false") params.push(`showMessage=${showMessage}`);
+
+            if (params.length > 0) {
+                link += "?" + params.join("&");
+            }
+
+            document.getElementById("generatedLink").href = link;
+            document.getElementById("generatedLink").textContent = link;
+        }
+
+        function resetDefaults() {
+            document.getElementById("min").value = 1;
+            document.getElementById("max").value = 100;
+            document.getElementById("minColor").value = "#ffffff"; // 初期値は白
+            document.getElementById("maxColor").value = "#ffffff"; // 初期値は白
+            document.getElementById("showMessage").value = "false";
+            document.getElementById("generatedLink").href = "#"; // リンクをクリア
+            document.getElementById("generatedLink").textContent = ""; // テキストもクリア
+            updateColorPreview(); // プレビューを更新
+        }
+
+        function updateColorPreview() {
+            const minColor = document.getElementById("minColor").value;
+            const maxColor = document.getElementById("maxColor").value;
+            const colorPreview = document.getElementById("colorPreview");
+
+            // グラデーションの更新
+            colorPreview.style.background = `linear-gradient(to right, ${minColor}, ${maxColor})`;
+        }
+    </script>
+</body>
+
+</html>
