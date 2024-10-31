@@ -1,0 +1,7 @@
+        #colorPreview {
+            width: 100%;
+            height: 30px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            background: linear-gradient(to right, #ffffff, #ffffff);
+        }
