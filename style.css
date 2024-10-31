@@ -42,6 +42,10 @@ body {
     /* 縁取りの色 */
 }
 
+#message {
+    font-size: 0.1em;
+}
+
 button{
     padding: 10px;
     cursor: pointer;

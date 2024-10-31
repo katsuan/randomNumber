@@ -7,6 +7,7 @@ function getParameters() {
     const minString = params.get("min") || "1";
     const maxString = params.get("max") || "100";
     let colorString = params.get("color") || "none";
+    const showMessage = params.get("showMessage") !== "false"; // 'false' でないならメッセージ表示
 
     const colors = colorString.split(",");
     colors.forEach((color, index) => {
@@ -19,6 +20,7 @@ function getParameters() {
         min: parseInt(minString, 10),
         max: parseInt(maxString, 10),
         colors: colors,
+        showMessage: showMessage,
     };
 }
 
@@ -49,13 +51,36 @@ function setBackgroundColor(number, min, max, colors) {
 }
 
 function displayNumber() {
-    const { min, max, colors } = getParameters();
+    const { min, max, colors, showMessage } = getParameters(); // showMessageも取得
     const randomNumber = createRandomNumber(min, max);
     document.getElementById("number").textContent = zeroPadding(randomNumber, 2);
 
     setBackgroundColor(randomNumber, min, max, colors);
+    showMessageOnScreen(randomNumber, min, max, showMessage);
 }
 
 function createRandomNumber(min, max) {
     return Math.floor(Math.random() * (max + 1 - min)) + min;
+}
+
+function showMessageOnScreen(number, min, max, showMessage) {
+    const messageElement = document.getElementById("message");
+
+    if (!showMessage) {
+        messageElement.style.display = "none"; // メッセージを非表示
+        return;
+    }
+    
+    const paddedMin = zeroPadding(min, 2);
+    const paddedMax = zeroPadding(max, 2);
+
+    if (number === min) {
+        messageElement.textContent = `最小値 ${paddedMin} が出ました！`;
+        messageElement.style.display = "block"; // メッセージを表示
+    } else if (number === max) {
+        messageElement.textContent = `最大値 ${paddedMax} が出ました！`;
+        messageElement.style.display = "block"; // メッセージを表示
+    } else {
+        messageElement.style.display = "none"; // その他の場合は非表示
+    }
 }
