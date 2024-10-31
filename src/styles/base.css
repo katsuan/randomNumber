@@ -68,3 +68,25 @@ button:hover {
 .bg-accent {
     background-color: var(--color-accent);
 }
+
+.bg-warning {
+    background-color: var(--color-warning);
+}
+
+.bg-success {
+    background-color: var(--color-success);
+}
+
+.bg-info {
+    background-color: var(--color-info);
+}
+
+/* 文字色設定 */
+.text-white {
+    color: white;
+}
+
+/* 表示調整 */
+.flex{
+    display: flex;
+}

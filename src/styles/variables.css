@@ -6,6 +6,9 @@
     --color-second: #DF7861;
     --color-accent: #e9eaec;
     --color-bg: #f4f4f4;
+    --color-warning: #d9534f;
+    --color-success: #28a745;
+    --color-info: #17a2b8;
     /* 余白 */
     --spacing-small: 4px;
     --spacing-medium: 8px;
