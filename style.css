@@ -29,7 +29,21 @@ body {
     text-align: center;
 }
 
+#number {
+    font-weight: bold;
+    color: var(--color-base);
+    /* 数字の色 */
+    padding: 20px;
+    text-shadow:
+        -3px -3px 3px var(--color-accent),
+        3px -3px 3px var(--color-accent),
+        -3px 3px 3px var(--color-accent),
+        3px 3px 3px var(--color-accent);
+    /* 縁取りの色 */
+}
+
 button{
     padding: 10px;
     cursor: pointer;
+    font-size: 0.1em;
 }
