@@ -8,7 +8,7 @@ function getParameters() {
     const maxString = params.get("max") || "100";
     let colorString = params.get("color") || "none"; // デフォルトは none
 
-    // `#`なしの16進数やCSSの色名に対応
+    // `#`なしの16進数や、CSSの色名に対応
     if (colorString !== "none" && !CSS.supports("color", colorString)) {
         colorString = `#${colorString}`;
     }
@@ -20,16 +20,13 @@ function getParameters() {
     };
 }
 
-function colorToRgb(color) {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = color;
-    const rgb = ctx.fillStyle.match(/\d+/g);
-    return {
-        r: parseInt(rgb[0]),
-        g: parseInt(rgb[1]),
-        b: parseInt(rgb[2]),
-    };
+function hexOrNamedColorToRgb(color) {
+    const tempDiv = document.createElement("div");
+    tempDiv.style.color = color;
+    document.body.appendChild(tempDiv);
+    const rgb = window.getComputedStyle(tempDiv).color.match(/\d+/g);
+    document.body.removeChild(tempDiv);
+    return { r: parseInt(rgb[0]), g: parseInt(rgb[1]), b: parseInt(rgb[2]) };
 }
 
 function setBackgroundColor(number, min, max, color) {
@@ -39,7 +36,7 @@ function setBackgroundColor(number, min, max, color) {
     }
 
     const intensity = (number - min) / (max - min);
-    const targetColor = colorToRgb(color);
+    const targetColor = hexOrNamedColorToRgb(color);
     const r = Math.floor(targetColor.r * intensity);
     const g = Math.floor(targetColor.g * intensity);
     const b = Math.floor(targetColor.b * intensity);
