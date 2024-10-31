@@ -44,7 +44,7 @@ button {
     border-radius: var(--border-radius);
     font-size: 1em;
     cursor: pointer;
-    margin-top: var(--spacing-medium);
+    margin: var(--spacing-medium) var(--spacing-small);
 }
 
 input:hover,
