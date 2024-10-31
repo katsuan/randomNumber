@@ -26,9 +26,6 @@ function generateLink() {
         link += "?" + params.join("&");
     }
 
-    document.getElementById("generatedLink").href = link;
-    document.getElementById("generatedLink").textContent = link;
-
     window.location.href = link;
 }
 
