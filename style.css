@@ -35,10 +35,10 @@ body {
     /* 数字の色 */
     padding: 20px;
     text-shadow:
-        -3px -3px 3px var(--color-accent),
-        3px -3px 3px var(--color-accent),
-        -3px 3px 3px var(--color-accent),
-        3px 3px 3px var(--color-accent);
+        -3px -3px 3px white,
+        3px -3px 3px white,
+        -3px 3px 3px white,
+        3px 3px 3px white;
     /* 縁取りの色 */
 }
 
